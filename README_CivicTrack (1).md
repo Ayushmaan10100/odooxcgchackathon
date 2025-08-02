@@ -1,28 +1,28 @@
 
-# 🚨 CivicTrack – Hackathon Project
+ CivicTrack – Hackathon Project
 
-### Problem Statement 2
+ Problem Statement 2
 
 Empower citizens to easily report and track local issues (e.g., road damage, water leaks, garbage overflow) with location-based filtering and status tracking.
 
----
 
-## 🔍 Problem Summary
+
+ Problem Summary
 The civic infrastructure in urban areas faces frequent challenges—potholes, water supply issues, broken lights, etc.—yet most of these go unreported or unresolved due to lack of an effective platform. **CivicTrack** provides a user-friendly system to report, track, and manage such issues efficiently, encouraging citizen participation and improved municipal response.
 
----
 
-## 🌟 Key Features
 
-### ➤ Features Visibility
+ Key Features
+
+ Features Visibility
 - Issues visible only within a **3–5 km radius** using GPS/manual location.
 - User can’t interact with reports outside their zone.
 
-### ➤ Quick Issue Reporting
+ Quick Issue Reporting
 - Report with title, description, photos (up to 3), and category.
 - Supports **anonymous** or **verified** reporting.
 
-### ➤ Supported Categories
+ Supported Categories
 - Roads (potholes, obstructions)  
 - Lighting (broken/flickering lights)  
 - Water Supply (leaks, low pressure)  
@@ -30,9 +30,9 @@ The civic infrastructure in urban areas faces frequent challenges—potholes, wa
 - Public Safety (open manholes, exposed wiring)  
 - Obstructions (fallen trees, debris)
 
----
 
-## 🗺️ Map Mode & Filtering
+
+ Map Mode & Filtering
 
 - Issues displayed as pins on map (Leaflet.js or Google Maps).
 - Filter by:
@@ -40,31 +40,31 @@ The civic infrastructure in urban areas faces frequent challenges—potholes, wa
   - Category
   - Distance: 1 km, 3 km, 5 km
 
----
 
-## 📈 Status Tracking
+
+ Status Tracking
 - Issues have status logs and timestamps.
 - Reporters get notified on status updates.
 
----
 
-## 🧹 Moderation & Safety
+
+ Moderation & Safety
 - Spam/irrelevant reports can be flagged.
 - Multiple flags auto-hide issues pending review.
 
----
 
-## 👮 Admin Role
+
+ Admin Role
 - Manage and review reports.
 - Access issue analytics.
 - Ban abusive users.
 
----
 
-## 💻 Technical Overview
+
+ Technical Overview
 
 | Feature       | Technology Used       |
-|---------------|------------------------|
+
 | Frontend      | React.js or Flutter    |
 | Backend       | Node.js + Express      |
 | Database      | PostgreSQL + PostGIS   |
@@ -73,9 +73,8 @@ The civic infrastructure in urban areas faces frequent challenges—potholes, wa
 | Media Upload  | Firebase/Cloudinary    |
 | Hosting       | Render/Netlify/Heroku  |
 
----
 
-## 🧩 Evaluation Criteria Matrix
+ Evaluation Criteria Matrix
 
 | Criterion         | Implementation Summary |
 |------------------|-------------------------|
@@ -90,18 +89,17 @@ The civic infrastructure in urban areas faces frequent challenges—potholes, wa
 | Security         | Input sanitization, auth middleware, role check |
 | Usability        | Location filter, category icons, feedback notifications |
 
----
 
-## ✅ Extras
+
+
 - Map clustering for high-density areas.
 - Notifications with EmailJS or Twilio.
 - Admin dashboard with filters and charts.
 
----
 
-## 📂 Folder Structure
+ Folder Structure
 
-```
+
 /civictrack
 ├── client/                # Frontend (React)
 ├── server/                # Backend (Express)
@@ -114,20 +112,20 @@ The civic infrastructure in urban areas faces frequent challenges—potholes, wa
 └── README.md              # Project doc
 ```
 
----
 
-## 🧠 Key Code Snippets
 
-### 📍 1. Location-Based Filtering (PostgreSQL + PostGIS)
-```sql
+ Key Code Snippets
+
+ 1. Location-Based Filtering (PostgreSQL + PostGIS)
+sql
 -- Find all issues within a 3km radius from a given point
 SELECT * FROM issues 
 WHERE ST_DWithin(location, ST_MakePoint($1, $2)::geography, 3000);
 ```
 
----
 
-### 📝 2. Issue Reporting (Express + Sequelize)
+
+ 2. Issue Reporting (Express + Sequelize)
 ```js
 // controllers/issueController.js
 exports.createIssue = async (req, res) => {
@@ -139,9 +137,9 @@ exports.createIssue = async (req, res) => {
 };
 ```
 
----
 
-### 🗺️ 3. Displaying Map Pins (React + Leaflet.js)
+
+ 3. Displaying Map Pins (React + Leaflet.js)
 ```js
 <Map center={[latitude, longitude]} zoom={13}>
   {issues.map((issue) => (
@@ -152,9 +150,9 @@ exports.createIssue = async (req, res) => {
 </Map>
 ```
 
----
 
-### 🔐 4. JWT Authentication Middleware
+
+ 4. JWT Authentication Middleware
 ```js
 // middleware/auth.js
 const jwt = require("jsonwebtoken");
@@ -171,11 +169,11 @@ module.exports = function(req, res, next) {
     res.status(400).send("Invalid Token");
   }
 };
-```
 
----
 
-### 🛡️ 5. Admin: Ban a User
+
+
+ 5. Admin: Ban a User
 ```js
 // controllers/adminController.js
 exports.banUser = async (req, res) => {
@@ -185,9 +183,8 @@ exports.banUser = async (req, res) => {
 };
 ```
 
----
 
-### ⚠️ 6. Flagging a Report
+ 6. Flagging a Report
 ```js
 // routes/flagRoute.js
 router.post("/flag/:issueId", async (req, res) => {
@@ -203,9 +200,9 @@ router.post("/flag/:issueId", async (req, res) => {
 });
 ```
 
----
 
-### 📊 7. Admin Analytics Query
+
+7. Admin Analytics Query
 ```sql
 -- Count issues by category
 SELECT category, COUNT(*) as total FROM issues GROUP BY category;
